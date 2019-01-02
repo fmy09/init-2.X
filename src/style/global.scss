@@ -1,0 +1,19 @@
+@import "./base/reset";
+@import "./base/base";
+@import "./base/function";
+@import "./base/mixin";
+@import "./base/value";
+@import "./base/color";
+@import "./page/error";
+@import "./page/index";
+
+html{
+  font-size: 100px;
+}
+
+body{
+  font-family: Microsoft YaHei, Arial, Helvetica, sans-serif;
+  font-size: px2rem($fontSize);
+  color: $fontColor;
+  margin: 0;
+}

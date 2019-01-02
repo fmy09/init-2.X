@@ -1,0 +1,528 @@
+//转换2D
+@mixin translate($deg1:50%,$deg2:50%){
+  -webkit-transform: translate($deg1,$deg2);
+  -moz-transform: translate($deg1,$deg2);
+  -ms-transform: translate($deg1,$deg2);
+  -o-transform: translate($deg1,$deg2);
+  transform: translate($deg1,$deg2);
+}
+
+//转换3D
+@mixin translate3d($deg1:50%,$deg2:50%,$deg3:100px){
+  -webkit-transform: translate3d($deg1,$deg2,$deg3);
+  -moz-transform: translate3d($deg1,$deg2,$deg3);
+  -ms-transform: translate3d($deg1,$deg2,$deg3);
+  -o-transform: translate3d($deg1,$deg2,$deg3);
+  transform: translate3d($deg1,$deg2,$deg3);
+}
+
+//缩放2D
+@mixin scale($deg1,$deg2){
+  -webkit-transform: scale($deg1,$deg2);
+  -moz-transform: scale($deg1,$deg2);
+  -ms-transform: scale($deg1,$deg2);
+  -o-transform: scale($deg1,$deg2);
+  transform: scale($deg1,$deg2);
+}
+
+//缩放3D
+@mixin scale3d($deg1,$deg2,$deg3){
+  -webkit-transform: scale3d($deg1,$deg2,$deg3);
+  -moz-transform: scale3d($deg1,$deg2,$deg3);
+  -ms-transform: scale3d($deg1,$deg2,$deg3);
+  -o-transform: scale3d($deg1,$deg2,$deg3);
+  transform: scale3d($deg1,$deg2,$deg3);
+}
+
+//旋转2D
+@mixin rotate($deg1,$deg2){
+  -webkit-transform: rotate($deg1,$deg2);
+  -moz-transform: rotate($deg1,$deg2);
+  -ms-transform: rotate($deg1,$deg2);
+  -o-transform: rotate($deg1,$deg2);
+  transform: rotate($deg1,$deg2);
+}
+
+//旋转3D
+@mixin rotate3d($deg1,$deg2,$deg3){
+  -webkit-transform: rotate3d($deg1,$deg2,$deg3);
+  -moz-transform: rotate3d($deg1,$deg2,$deg3);
+  -ms-transform: rotate3d($deg1,$deg2,$deg3);
+  -o-transform: rotate3d($deg1,$deg2,$deg3);
+  transform: rotate3d($deg1,$deg2,$deg3);
+}
+
+//倾斜
+@mixin skew($deg){
+  -webkit-transform: skew($deg);
+  -moz-transform: skew($deg);
+  -ms-transform: skew($deg);
+  -o-transform: skew($deg);
+  transform: skew($deg);
+}
+
+//设置旋转元素的基点位置
+@mixin origin($position){
+  -webkit-transform-origin:$position;
+  -moz-transform-origin:$position;
+  -ms-transform-origin:$position;
+  -o-transform-origin:$position;
+  transform-origin:$position;
+}
+
+//隐藏被旋转的节点
+@mixin backface($backface:hidden){
+  backface-visibility:$backface;
+  -webkit-backface-visibility:$backface;
+  -moz-backface-visibility:$backface;
+  -ms-backface-visibility:$backface;
+}
+
+//圆角-整体
+@mixin radius($radius:0.04rem){
+  -webkit-border-radius:$radius;
+  -moz-border-radius:$radius;
+  border-radius:$radius;
+}
+
+//圆角-上双边
+@mixin top-radius($radius:0.04rem){
+  -webkit-border-top-left-radius:$radius;
+  -webkit-border-top-right-radius:$radius;
+  -moz-border-top-left-radius:$radius;
+  -moz-border-top-right-radius:$radius;
+  border-top-left-radius:$radius;
+  border-top-right-radius:$radius;
+}
+
+//圆角-上左边
+@mixin top-left-border($radius:0.04rem){
+  -webkit-border-top-left-radius:$radius;
+  -moz-border-top-left-radius:$radius;
+  border-top-left-radius:$radius;
+}
+
+//圆角-上右边
+@mixin top-right-border($radius:0.04rem){
+  -webkit-border-top-right-radius:$radius;
+  -moz-border-top-right-radius:$radius;
+  border-top-right-radius:$radius;
+}
+
+//圆角-下双边
+@mixin bottom-radius($radius:0.04rem){
+  -webkit-border-bottom-left-radius:$radius;
+  -webkit-border-bottom-right-radius:$radius;
+  -moz-border-bottom-left-radius:$radius;
+  -moz-border-bottom-right-radius:$radius;
+  border-bottom-left-radius:$radius;
+  border-bottom-right-radius:$radius;
+}
+
+//圆角-下左边
+@mixin bottom-left-radius($radius:0.04rem){
+  -webkit-border-bottom-left-radius:$radius;
+  -moz-border-bottom-left-radius:$radius;
+  border-bottom-left-radius:$radius;
+}
+
+//圆角-下右边
+@mixin bottom-right-radius($radius:0.04rem){
+  -webkit-border-bottom-right-radius:$radius;
+  -moz-border-bottom-right-radius:$radius;
+  border-bottom-right-radius:$radius;
+}
+
+//圆角-左双边
+@mixin left-radius($radius:0.04rem){
+  -webkit-border-top-left-radius:$radius;
+  -webkit-border-bottom-left-radius:$radius;
+  -moz-border-top-left-radius:$radius;
+  -moz-border-bottom-left-radius:$radius;
+  border-top-left-radius:$radius;
+  border-bottom-left-radius:$radius;
+}
+
+//圆角-右双边
+@mixin right-radius($radius:0.04rem){
+  -webkit-border-top-right-radius:$radius;
+  -webkit-border-bottom-right-radius:$radius;
+  -moz-border-top-right-radius:$radius;
+  -moz-border-bottom-right-radius:$radius;
+  border-top-right-radius:$radius;
+  border-bottom-right-radius:$radius;
+}
+
+//边框图片（url，val:向内偏移量 边框宽度，图片重复）
+@mixin border-image($url,$val){
+  -webkit-border-image: url($url) $val;
+  -moz-border-image: url($url) $val;
+  -o-border-image: url($url) $val;
+  border-image: url($url) $val;
+}
+
+//包含边框
+@mixin box-sizing($val:border-box){
+  -webkit-box-sizing: $val;
+  -moz-box-sizing: $val;
+  box-sizing: $val;
+}
+
+//外部阴影（水平，垂直，模糊，颜色）
+@mixin shadow($shadows:0px 0px 20px rgba(0,0,0,0.5)){
+  -webkit-box-shadow: $shadows;
+  -moz-box-shadow: $shadows;
+  box-shadow: $shadows;
+}
+
+//内部阴影（水平，垂直，模糊，颜色）
+@mixin shadow-inset($shadows:0px 0px 20px rgba(0,0,0,0.5)){
+  -webkit-box-shadow:inset $shadows;
+  -moz-box-shadow:inset $shadows;
+  box-shadow:inset $shadows;
+}
+
+//背景图像大小
+@mixin bg-size($val:100% 100%){
+  -webkit-background-size:$val;
+  -moz-background-size:$val;
+  -ms-background-size:$val;
+  -o-background-size:$val;
+  background-size:$val;
+}
+
+//背景图像定位区域
+@mixin bg-origin($origin:padding-box){
+  -webkit-background-origin: $origin;
+  -moz-background-origin: $origin;
+  -ms-background-origin: $origin;
+  -o-background-origin: $origin;
+  background-origin: $origin;
+}
+
+//背景图像绘制区域
+@mixin bg-clip($clip:content-box){
+  -webkit-background-clip: $clip;
+  -moz-background-clip: $clip;
+  -ms-background-clip: $clip;
+  -o-background-clip: $clip;
+  background-clip: $clip;
+}
+
+//背景色渐变
+@mixin gradient($color...){
+  background:-webkit-linear-gradient($color);
+    background:-moz-linear-gradient($color);
+    background:-o-linear-gradient($color);
+    background:linear-gradient($color);
+    @content;
+}
+
+//单行省略
+@mixin single-omit{
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  -ms-text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  display: -moz-box;
+  display:block;
+  -webkit-box-orient: vertical;
+  -moz-box-orient: vertical;
+}
+
+//设置字体
+@mixin font-face($name,$url){
+  @font-face{
+    font-family: $name;
+    src: url('#{$url}.eot');
+    src: url('#{$url}.eot?#iefix') format('eot'),
+    url('#{$url}.woff') format('woff'),
+    url('#{$url}.ttf') format('truetype'),
+    url('#{$url}.svg#webfontjKg17VrE') format('svg');
+  }
+}
+
+//过渡
+@mixin transition($val:all 2s linear 1s){
+  -webkit-transition: $val;
+  -moz-transition: $val;
+  -ms-transition: $val;
+  -o-transition: $val;
+  transition: $val;
+}
+
+//批量定义宽or高
+@mixin mWorH($type,$val...){
+
+  @if $type==w {
+    @each $i in ($val){
+      .mW#{$i}{
+        width:1% * $i;
+      }
+    }
+  }
+  @if $type==h {
+    @each $i in ($val){
+      .mH#{$i}{
+        height:1% * $i;
+      }
+    }
+  }
+
+}
+
+//定义高度+行高
+@mixin height($h){
+  height: $h;
+  line-height: $h;
+}
+
+//定义一致的宽高
+@mixin widthAndHeight($val){
+  width: $val;
+  height: $val;
+}
+
+//居中（定位）
+@mixin center($type){
+  position: absolute;
+
+  @if $type==x {
+    left: 50%;
+    @include translate(-50%,0);
+
+  }@else {
+
+    @if $type==y {
+      top: 50%;
+      @include translate(0,-50%);
+
+    }@else {
+
+      @if $type==all {
+        left: 50%;
+        top: 50%;
+        @include translate(-50%,-50%);
+      }
+    }
+  }
+}
+
+//弹性布局
+@mixin flex{
+  display:-webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+}
+
+//主轴对齐方式（ space-around两端留白 | space-between两端对齐 | center位于中心 ）
+@mixin justify-content($justify:space-around){
+  -webkit-justify-content:$justify;
+  justify-content:$justify;
+  -moz-box-pack:$justify;
+  -webkit--moz-box-pack:$justify;
+  box-pack:$justify;
+}
+
+//主轴切换为纵轴
+@mixin flex-direction{
+  -webkit-box-orient:vertical;
+  -webkit-box-direction:normal;
+  -moz-box-orient:vertical;
+  -moz-box-direction:normal;
+  flex-direction:column;
+  -webkit-flex-direction:column;
+}
+
+//纵轴对齐方式
+@mixin align-items($align:center){
+  align-items:$align;
+  -webkit-align-items:$align;
+  box-align:$align;
+  -moz-box-align:$align;
+  -webkit-box-align:$align;
+}
+
+//剩余空间（元素可伸缩）
+@mixin box-flex($val:1){
+  -webkit-box-flex: $val; /* OLD - iOS 6-, Safari 3.1-6 */
+  -moz-box-flex: $val; /* OLD - Firefox 19- */
+  -webkit-flex: $val; /* Chrome */
+  -ms-flex: $val; /* IE 10 */
+  flex: $val; /* NEW, Spec - Opera 12.1, Firefox 20+ */
+}
+
+//透明度（0~1）
+@mixin opacity($val){
+  opacity: $val;
+  filter:alpha(opacity=$val*100);
+  -moz-opacity: $val;
+  -khtml-opacity: $val;
+}
+
+// 设置内容选择（不可选中）
+@mixin user-select($select:none) {
+  -webkit-user-select:$select;
+  -moz-user-select:$select;
+  -ms-user-select:$select;
+  user-select:$select;
+}
+
+//外置线条（方向，线条宽度，线条高度，线条颜色）
+@mixin line($type,$lineWeight,$lineHeight,$lineColor){
+  @if $type==l {
+    &:before{
+      content: '';
+      width: $lineWeight;
+      height: $lineHeight;
+      background: $lineColor;
+      @include center(y);
+      left: 0;
+      @content;
+    }
+  }
+  @if $type==r {
+    &:before{
+      content: '';
+      width: $lineWeight;
+      height: $lineHeight;
+      background: $lineColor;
+      @include center(y);
+      right: 0;
+      @content;
+    }
+  }
+  @if $type==t {
+    &:before{
+      content: '';
+      width: $lineWeight;
+      height: $lineHeight;
+      background: $lineColor;
+      @include center(x);
+      top: 0;
+      @content;
+    }
+  }
+  @if $type==b {
+    &:before{
+      content: '';
+      width: $lineWeight;
+      height: $lineHeight;
+      background: $lineColor;
+      @include center(x);
+      bottom: 0;
+      @content;
+    }
+  }
+}
+
+//chrome下滚动条样式
+@mixin scrollBar($scrollWidth,$scrollBg,$scrollColor){
+
+  &::-webkit-scrollbar {
+    width: $scrollWidth;
+    background-color:$scrollBg;
+  }
+
+  &::-webkit-scrollbar-button{
+    display: none;
+    background-size: 12px 12px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color:$scrollBg;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: $scrollColor;
+    border-radius: 50px;
+  }
+
+}
+
+//模拟按钮样式（宽，高，颜色）
+@mixin button($width,$height,$bg){
+  width: $width;
+  @include height($height);
+  @include radius();
+  @include user-select();
+  background: $bg;
+  text-align: center;
+  cursor: pointer;
+}
+
+// 三角形（朝向，大小，颜色）
+@mixin triangle($direction, $size, $borderColor) {
+  content: "";
+  height: 0;
+  width: 0;
+  position: absolute;
+  #{$direction}: - $size * 2;
+  border-style: solid;
+  border-width: $size;
+  @if $direction == top {
+    border-color: transparent transparent $borderColor transparent;
+  }@else if $direction == right {
+    border-color: transparent transparent transparent $borderColor;
+  }@else if $direction == bottom {
+    border-color: $borderColor transparent transparent transparent;
+  }@else if $direction == left {
+    border-color: transparent $borderColor transparent transparent;
+  }
+}
+
+// 平行四边形
+@mixin parallelogram($width,$height,$length,$deg:45){
+  width: $width;
+  height: $height;
+
+  &:before{
+    content: '';
+    width: $width - $length;
+    height: $height;
+    position: absolute;
+    top: 0;
+    left: $length/2;
+    @include skew(-#{$deg}deg);
+    @content
+  }
+}
+
+// 梯形(类型，宽，高，透视距离，x轴旋转角度，放大倍数)
+@mixin ladder($type,$width,$height,$p:0.5em,$r:3deg,$s:1){
+  width:$width / $s;
+  height:$height;
+  transform: perspective($p) rotateX($r) scale($s);
+  @if $type == left {
+    @include origin(bottom left);
+  }@else if $type == right {
+    @include origin(bottom right);
+  }@else {
+    @include origin(bottom);
+  }
+}
+
+// 输入框自定义默认字体
+@mixin placeholder($color){
+  &::-webkit-input-placeholder{
+    color: $color;
+    @content
+  }
+  &::-moz-placeholder{
+    color: $color;
+    @content
+  }
+  &:-moz-placeholder{
+    color: $color;
+    @content
+  }
+  &:-ms-input-placeholder {
+    color: $color;
+    @content
+  }
+}
+

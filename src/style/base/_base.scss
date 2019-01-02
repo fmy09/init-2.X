@@ -1,0 +1,35 @@
+// float and clear float (浮动)
+.lf{
+  float: left;
+}
+.rt{
+  float: right;
+}
+.clear-both{
+  zoom: 1;
+}
+.clear-both:after{
+  content: "";
+  clear: both;
+  font-size: 0;
+  height: 0;
+  display: block;
+  visibility: hidden;
+}
+
+// divide from the middle （等分）
+.half{
+  width: 50%;
+}
+.third{
+  width: 33.33%;
+}
+.quarter{
+  width: 25%;
+}
+.fifth{
+  width: 20%;
+}
+
+// visual effect （动效）
+

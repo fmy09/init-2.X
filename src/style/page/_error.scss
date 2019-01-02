@@ -1,0 +1,28 @@
+// 404
+.error{
+  position: fixed;
+  @include widthAndHeight(100%);
+  text-align: center;
+
+  &-info{
+    @include center(all);
+
+    img{
+      width: px2rem(500px);
+    }
+
+    p{
+      color: #D6D6D8;
+      font-size: px2rem(20px);
+      padding: px2rem(10px) 0;
+    }
+
+    button{
+      padding: px2rem(5px) px2rem(10px);
+      @include radius();
+      border: px2rem(1px) solid rgba(0,0,0,0.5);
+      cursor: pointer;
+      margin-top: px2rem(10px);
+    }
+  }
+}

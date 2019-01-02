@@ -1,0 +1,39 @@
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,from,fieldset,input,textarea,p,blockquote,th,td,.row{
+  margin: 0;
+  padding: 0;
+}
+table{
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+fieldset,img{
+  border:0 ;
+}
+address,caption,cite,code,dfn,em,strong,th,var{
+  font-style: normal;
+  font-weight: normal;
+}
+ol,ul{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+caption,th{
+  text-align: center;
+}
+q:before,q:after{
+  content:"";
+}
+abbr,acronym,textarea{
+  border:0;
+}
+button,input,select,textarea{
+  vertical-align:middle
+}
+figure{
+  padding: 0;
+  margin: 0;
+}
+p{
+  margin: 0;
+}
