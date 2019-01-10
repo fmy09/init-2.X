@@ -1,5 +1,12 @@
 # vue init
 
+[![](https://img.shields.io/badge/Axios-v0.18.0-brightgreen.svg)](https://github.com/axios/axios)
+[![](https://img.shields.io/badge/NodeSass-v0.18.0-brightgreen.svg)](https://github.com/sass/node-sass)
+[![](https://img.shields.io/badge/SassLoader-v0.18.0-brightgreen.svg)](https://github.com/webpack-contrib/sass-loader)
+[![](https://img.shields.io/badge/BabelPolyfill-v0.18.0-brightgreen.svg)](https://github.com/babel/babel/tree/master/packages/babel-polyfill)
+[![](https://img.shields.io/badge/UrlSearchParamsPolyfill-v0.18.0-brightgreen.svg)](https://github.com/jerrybendy/url-search-params-polyfill)
+[![](https://img.shields.io/badge/FormDataPolyfill-v0.18.0-brightgreen.svg)](https://github.com/jimmywarting/FormData)
+
 > 项目开发基础设置1.0
 
 ## 安装
@@ -9,24 +16,6 @@
 
 ## 初始化
 npm install
-
-## Babel转换ES6新特性垫片
-npm install babel-polyfill --save 
-
-## Node-sass依赖
-npm install node-sass -D
-
-## Sassy依赖
-npm install sass-loader -D
-
-## Axios依赖
-npm install axios -D
-
-## URLSearchParams兼容
-npm install url-search-params-polyfill --save
-
-## Formdata兼容
-npm install formdata-polyfill --save
 
 ```
 
