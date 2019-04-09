@@ -1,4 +1,4 @@
-# vue init
+# vue init(2.X)
 
 [![axios-verson](https://img.shields.io/badge/Axios-v0.18.0-brightgreen.svg)](https://github.com/axios/axios)
 [![node-sass](https://img.shields.io/badge/NodeSass-v4.11.0-brightgreen.svg)](https://github.com/sass/node-sass)
