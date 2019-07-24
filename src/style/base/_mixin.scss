@@ -169,7 +169,7 @@
 }
 
 //外部阴影（水平，垂直，模糊，颜色）
-@mixin shadow($shadows:0px 0px 20px rgba(0,0,0,0.5)){
+@mixin shadow($shadows...){
   -webkit-box-shadow: $shadows;
   -moz-box-shadow: $shadows;
   box-shadow: $shadows;
@@ -526,3 +526,42 @@
   }
 }
 
+// 动画（）
+@mixin animation($val) {
+  animation: $val;
+  -webkit-animation: $val;
+  -moz-animation: $val;
+  -ms-animation: $val;
+  -o-animation: $val;
+}
+
+// 动画（动画名）
+@mixin keyframes($name) {
+  @keyframes #{$name} {
+    @content;
+  }
+
+  @-webkit-keyframes #{$name} {
+    @content;
+  }
+
+  @-moz-keyframes #{$name} {
+    @content;
+  }
+
+  @-ms-keyframes #{$name} {
+    @content;
+  }
+
+  @-o-keyframes #{$name} {
+    @content;
+  }
+}
+
+// 线性渐变 （方向,颜色值） 不兼容ie9以下
+@mixin linear-gradient($direction, $color...) {
+  background: -webkit-linear-gradient($direction, $color); /* Safari 5.1 - 6.0 */
+  background: -o-linear-gradient($direction, $color); /* Opera 11.1 - 12.0 */
+  background: -moz-linear-gradient($direction, $color); /* Firefox 3.6 - 15 */
+  background: linear-gradient(to $direction, $color); /* 标准的语法 */
+}

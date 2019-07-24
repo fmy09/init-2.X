@@ -19,15 +19,23 @@
 
 // divide from the middle （等分）
 .half{
+  float: left;
   width: 50%;
 }
 .third{
+  float: left;
   width: 33.33%;
 }
+.two-third {
+  float: left;
+  width: 66.66%;
+}
 .quarter{
+  float: left;
   width: 25%;
 }
 .fifth{
+  float: left;
   width: 20%;
 }
 

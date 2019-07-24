@@ -1,4 +1,9 @@
 @function px2rem($size) {
-  $remSize: $size / 100px;
+  $remSize: Number;
+  @if unitless($size) {
+    $remSize: $size / 100;
+  } @else {
+    $remSize: $size / 100px;
+  }
   @return $remSize * 1rem;
 }

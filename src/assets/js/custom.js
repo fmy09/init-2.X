@@ -145,26 +145,122 @@ export default {
         return true
       }
     }
-    // 剪切成摘要添加省略号
-    //
+    /*  @function 剪切成摘要添加省略号
+     *  @param {String} str —— 目标字符串
+     *  @param {Number} num —— 限制字数个数
+     *  @param {String} tar —— 末尾添加的字符串
+     */
     Vue.prototype.summary = function (str, num, tar) {
       if (!tar) {
         tar = '...'
       }
       let newStr, oLength = str.length, tLength = tar.length;
       if (oLength > num) {
-        newStr = str.substring(0, num - tLength) + tar;
-      } else if (oLength === num) {
-        newStr = str;
+        newStr = str.substring(0, num - 1) + tar;
       } else {
-        if (oLength + tLength <= num) {
-          newStr = str;
-        } else {
-          let s = oLength + tLength - num;
-          newStr = str.substring(0, str.length - s) + tar;
-        }
+        newStr = str;
       }
       return newStr
+    }
+    /*  @function 防抖函数
+     *  @param {Function} fn —— 需要防抖的函数
+     *  @param {Number} delay —— 防抖延迟时间
+     */
+    Vue.prototype.debounce = function (fn, delay) {
+      let timer;
+      return function () {
+        clearTimeout(timer);
+        timer = setTimeout(() => {
+          fn.apply(this, arguments)
+        }, delay)
+      }
+    };
+
+    /*  @function 节流函数
+     *  @param {Function} fn —— 需要节流的函数
+     *  @param {Number} wait —— 节流等待时间
+     */
+    Vue.prototype.throttling = function (fn, wait) {
+      let canRun = true;
+      return function () {
+        if (!canRun) return;
+        canRun = false;
+        setTimeout(() => {
+          fn.apply(this, arguments);
+          canRun = true;
+        }, wait)
+      }
+    };
+
+    /*  @function 判断数据类型
+     *  @param {All} data —— 判断数据
+     *  @param {String} type [String|Object|Number|...] —— 类型
+     */
+    Vue.prototype.judgeType = function (data, type) {
+      let typeName = Object.prototype.toString.call(data);
+      let reg = new RegExp(type);
+      return reg.test(typeName);
+    };
+
+    /* @function 根据当前分辨率动态赋值像素
+     * @param {Number} size
+     * @param {Number} base
+     * @return
+     */
+    Vue.prototype.rem2Px = function (size, base) {
+      let e = document.body.clientWidth || document.documentElement.clientWidth;
+      let baseWidth = 1920;
+      return e / (base || baseWidth) * size;
+    };
+
+    /* @function 将时间戳或者中国标准时间处理成标准格式
+     * @param {Number} timestamp —— 时间戳或者中国标准时间
+     * @param {String} format —— 输出格式 (YYYY-MM-DD hh:mm:ss)
+     *        {Boolean} format —— 是否为日期(true返回YYYY-MM-DD false返回hh:mm:ss)
+     * @param {String} type —— 连接语种种类(CHS中文 默认符号连接)
+     */
+    Vue.prototype.timestampToTime = function (timestamp, format, type) {
+      let dateStr = '';
+      let date = timestamp ? new Date(timestamp) : new Date(); // 时间戳为10位需*1000，时间戳为13位的话不需乘1000
+      let Y = date.getFullYear();
+      let M = String(date.getMonth() + 1).padStart(2, 0);
+      let D = String(date.getDate()).padStart(2, 0);
+      let h = String(date.getHours()).padStart(2, 0);
+      let m = String(date.getMinutes()).padStart(2, 0);
+      let s = String(date.getSeconds()).padStart(2, 0);
+      switch (Object.prototype.toString.call(format)) {
+        case '[object String]':
+          let strArray = format.trim().split(' ');
+          if (strArray.length > 1) {
+
+          } else {
+
+          }
+          break;
+        case '[object Boolean]':
+          if (format) {
+            switch (type) {
+              case 'CHS':
+                dateStr = Y + '年' + M + '月' + D + '日';
+                break;
+              default:
+                dateStr = Y + '-' + M + '-' + D;
+                break;
+            }
+          } else {
+            switch (type) {
+              case 'CHS':
+                dateStr = h + '时' + m + '分' + s + '秒';
+                break;
+              default:
+                dateStr = h + ':' + m + ':' + s;
+                break;
+            }
+          }
+          break;
+      }
+      console.log(Object.prototype.toString.call(format));
+      return dateStr;
     }
   }
 }
