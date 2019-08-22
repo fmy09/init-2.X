@@ -565,3 +565,19 @@
   background: -moz-linear-gradient($direction, $color); /* Firefox 3.6 - 15 */
   background: linear-gradient(to $direction, $color); /* 标准的语法 */
 }
+
+// 两端对齐
+@mixin justify($type:multi){
+  text-align:justify;
+  text-justify:distribute-all-lines;
+  text-justify:inter-ideograph;
+
+  @if $type == single {
+    text-align-last:justify;
+    &:after{
+      content: '';
+      width: 100%;
+      display: inline-block;
+    }
+  }
+}

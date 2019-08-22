@@ -1,3 +1,8 @@
+a, a:link{
+  text-decoration:none;
+  color: $fontColor;
+}
+
 // float and clear float (浮动)
 .lf{
   float: left;
@@ -40,4 +45,6 @@
 }
 
 // visual effect （动效）
-
+.height-transition {
+  transition: height .3s ease-in-out,padding-top .3s ease-in-out,padding-bottom .3s ease-in-out;
+}
