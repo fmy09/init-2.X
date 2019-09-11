@@ -261,6 +261,20 @@ export default {
       }
       console.log(Object.prototype.toString.call(format));
       return dateStr;
+    };
+
+    /*  @filter 详情时间过滤
+     *  @param {String} time —— 时间值
+     *  @return {String} dateStr —— 过滤后的时间值 (YYYY-MM-DD)
+     */
+    Vue.prototype.timeFilter = function (time) {
+      if (typeof time === 'string') {
+        let date = time.trim().split(' '), dateStr = '';
+        dateStr = date[0];
+        return dateStr
+      } else {
+        return time;
+      }
     }
   }
 }
