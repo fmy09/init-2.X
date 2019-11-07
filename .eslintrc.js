@@ -42,6 +42,8 @@ module.exports = {
     // 连续声明
     'one-var': 0,
     // 一行结束后面不要有空格
-    'no-trailing-spaces': 0
+    'no-trailing-spaces': 0,
+    // 允许三目运算、短路
+    'no-unused-expressions': 0
   }
 }
