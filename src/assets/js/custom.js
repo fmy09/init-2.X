@@ -230,11 +230,34 @@ export default {
       let s = String(date.getSeconds()).padStart(2, 0);
       switch (Object.prototype.toString.call(format)) {
         case '[object String]':
-          let strArray = format.trim().split(' ');
-          if (strArray.length > 1) {
+          format = format.trim();
+          let dateArr = [], timeArr = [];
+          if (/(Y){1,4}/.test(format)) {
+            dateArr.push(type ? Y + '年' : Y);
+          }
+          if (/(M){1,2}/.test(format)) {
+            dateArr.push(type ? M + '月' : M);
+          }
+          if (/(D){1,2}/.test(format)) {
+            dateArr.push(type ? D + '日' : D);
+          }
 
-          } else {
-
+          if (/(h){1,2}/.test(format)) {
+            timeArr.push(type ? h + '时' : h);
+          }
+          if (/(m){1,2}/.test(format)) {
+            timeArr.push(type ? m + '分 ' : m);
+          }
+          if (/(s){1,2}/.test(format)) {
+            timeArr.push(type ? s + '秒' : s);
+          }
+          switch (type) {
+            case 'CHS':
+              dateStr = [dateArr.join(''), timeArr.join('')].join(' ');
+              break;
+            default:
+              dateStr = [dateArr.join('-'), timeArr.join(':')].join(' ');
+              break;
           }
           break;
         case '[object Boolean]':
@@ -275,6 +298,23 @@ export default {
       } else {
         return time;
       }
-    }
+    };
+
+    /* @function 随机生成整数
+     * @param {Number} min —— 最小值
+     * @param {Number} max —— 最大值
+     * @param {Number} num —— 需要产生的个数 */
+    Vue.prototype.randomNumber = function (min, max, num) {
+      let random;
+      if (num) {
+        random = [];
+        for (let i = 0; i < num; i++) {
+          random.push(Math.floor(Math.random() * (max - min + 1)) + min);
+        }
+      } else {
+        random = Math.floor(Math.random() * (max - min + 1)) + min
+      }
+      return random;
+    };
   }
 }
