@@ -316,5 +316,28 @@ export default {
       }
       return random;
     };
+
+    /* @function 字符串大小写替换
+     * @param {String} str —— 目标字符串
+     * @param {String} letter —— 目标字符大小写(upper大写 / lower小写)
+     * @param {String} symbol —— 标点符号(默认：.) */
+    Vue.prototype.stringReplace = function (str, letter, symbol) {
+      let escape = ['$', '(', ')', '*', '+', '.', '[', ']', '?', '/', '^', '{', '}'];
+      let string, remark;
+      remark = symbol || '.';
+      switch (letter) {
+        case 'upper':default:
+          string = str.replace(/([A-Z])/g, remark + '$1').toLowerCase();
+          break;
+        case 'lower':
+          escape.includes(remark) ? remark = '\\' + remark : '';
+          let reg = new RegExp(remark + '([a-z])', 'g');
+          string = str.replace(reg, function (all, item) {
+            return item.toUpperCase();
+          });
+          break;
+      }
+      return string;
+    };
   }
 }
